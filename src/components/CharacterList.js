@@ -9,17 +9,17 @@ export default function CharacterList() {
     axios.get('https://rickandmortyapi.com/api/character/')
     .then(res => {
       console.log(res.data)
-      setCharacters(res.data)
+      setCharacters(res.data.results)
     })
     .catch(err => console.log("this is an error", err))
     // TODO: Add API Request here - must run in `useEffect`
     //  Important: verify the 2nd `useEffect` parameter: the dependancies array!
-  }, []);
+  }, [characters]);
 
   return (
     <section className="character-list">
-      {characters.map(character => 
-        <ChararacterCard character={character}/> )}
+      {characters.map((character, index) => 
+        <ChararacterCard key={index} character={character}/> )}
     </section>
   );
 }

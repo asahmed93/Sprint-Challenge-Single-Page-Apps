@@ -9,9 +9,11 @@ export default function SearchForm() {
   const newSearch = () => {
     axios.get(`https://rickandmortyapi.com/api/character/`)
     .then(res => {
-      console.log(res.data);
-      setSearchResults(res.data)})
+      setSearchResults(res.data.results)
+    })
   }
+  
+
 
   const handleInputChange = (e) => {
     setName(e.target.value)
@@ -31,7 +33,7 @@ export default function SearchForm() {
         <button type="submit">Search</button>
       </form>
       <div>
-        {searchResults.map(char => <CharacterCard character={char}/>)}
+        {searchResults.map((character,index) => <CharacterCard key={index} character={character}/>)}
       </div>
     </section>
   );
