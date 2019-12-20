@@ -9,7 +9,7 @@ export default function CharacterList() {
     axios.get('https://rickandmortyapi.com/api/character/')
     .then(res => {
       console.log(res.data)
-      setCharacters(res.data.results)
+      setCharacters(res.data)
     })
     .catch(err => console.log("this is an error", err))
     // TODO: Add API Request here - must run in `useEffect`

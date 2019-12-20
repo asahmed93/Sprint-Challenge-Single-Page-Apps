@@ -13,7 +13,6 @@ export default function App() {
       <Route exact path="/"><WelcomePage/></Route>
       <Route path="/"><SearchForm/></Route>
       <Route path="/characters"><CharacterList/></Route>
-      
     </main>
   );
 }
